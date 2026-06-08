@@ -7,18 +7,17 @@
   NODE_VERSION = "22"
 
 # ─────────────────────────────────────────────────────────────
-# PROXY DE LA API (pendiente: descomentar cuando publiques el backend)
+# PROXY DE LA API
 #
 # La app llama a `/api` (ver src/environments/environment.ts).
-# Cuando tengas la URL real del backend, reemplaza BACKEND_URL y
-# descomenta este bloque. DEBE ir ANTES del fallback SPA de abajo.
-#
-# [[redirects]]
-#   from = "/api/*"
-#   to = "https://BACKEND_URL/api/:splat"
-#   status = 200
-#   force = true
+# Netlify reenvía /api/* al backend en Render.
+# DEBE ir ANTES del fallback SPA de abajo.
 # ─────────────────────────────────────────────────────────────
+[[redirects]]
+  from = "/api/*"
+  to = "https://pagoya-api-5q7k.onrender.com/api/:splat"
+  status = 200
+  force = true
 
 # Fallback SPA: cualquier ruta no-archivo sirve index.html
 # (necesario para que el routing de Angular funcione al recargar)
